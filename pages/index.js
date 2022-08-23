@@ -1,11 +1,8 @@
-import { useState } from "react";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Counter from "../components/Counter";
 
 export default function Home() {
-  const [count, setCount] = useState(1);
-
   return (
     <div className="p-4">
       <style jsx>{`
@@ -26,8 +23,8 @@ export default function Home() {
       </Head>
       <div className="main">
         <Counter
-          title="Count Chocula"
-          description="Reactive Data (Padding to Child)"
+          title="useEffect"
+          description="Fires a function after every render."
         />
       </div>
       <Footer />
