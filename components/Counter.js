@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 
+const NumType = ({ count }) => {
+  if (count % 2 === 0) return <h1>Even</h1>;
+  else return <h1>Odd</h1>;
+};
+
 const Counter = ({ title, description }) => {
   const [count, setCount] = useState(0);
 
@@ -9,14 +14,20 @@ const Counter = ({ title, description }) => {
 
   useEffect(() => {
     console.log("Use effect ran.");
-    console.log(count);
-  });
-
+  }, [count]);
+  // We don't always want this function to run.
+  // It'd be best to have this ran after a single render.
+  // Dependency Arrays - An array that can be passed into the useEffect hook.
+  // [] - Empty string is good when we only want this useHook function to run on the first render.
+  // when we add name into the [], this becomes our new dependency.
+  // when the name changes, the function will run again.
   return (
     <>
       <h1 className="title text-4xl">{title}</h1>
       <aside>{description}</aside>
       <p className="mt-4 mb-4 text-2xl italic">{count}</p>
+      <p>{count % 2 === 0 ? <h1>Even</h1> : <h1>Odd</h1>}</p>
+      {/* <NumType/> */}
       <button
         type="button"
         onClick={handleClick}
