@@ -5,6 +5,7 @@ import LoadingButton from "../components/LoadingButton";
 import { useState } from "react";
 import Loops from "../components/Loops";
 import Events from "../components/Events";
+import Context from "../components/Context";
 export default function Home() {
   const [isLoading, setIsLoding] = useState(false);
   const handleClick = () => {
@@ -58,7 +59,9 @@ export default function Home() {
         {/* <Loops animals={animals} /> */}
         {/* ---------------------- */}
 
-        <Events search={search} setSearch={handleChange} />
+        {/* <Events search={search} setSearch={handleChange} /> */}
+        {/* ---------------------- */}
+        <Context />
       </div>
       <Footer />
     </div>

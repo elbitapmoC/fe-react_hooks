@@ -12,6 +12,11 @@ const Counter = ({ title, description }) => {
     setCount(count + 1);
   };
 
+  // LifeCycle
+  // --
+  // Mount
+  // Update
+  // Unmount
   useEffect(() => {
     console.log("Use effect ran.");
   }, [count]);
