@@ -1,8 +1,28 @@
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Counter from "../components/Counter";
-
+import LoadingButton from "../components/LoadingButton";
+import { useState } from "react";
+import Loops from "../components/Loops";
+import Events from "../components/Events";
 export default function Home() {
+  const [isLoading, setIsLoding] = useState(false);
+  const handleClick = () => {
+    setIsLoding(!isLoading);
+  };
+  const [search, setSearch] = useState("");
+  const animals = [
+    { id: 1, name: "Fido 🐕" },
+    { id: 2, name: "Snowball 🐈" },
+    { id: 3, name: "Murph 🐈‍⬛" },
+    { id: 4, name: "Zelda 🐈" },
+  ];
+
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+    console.log(search);
+  };
+
   return (
     <div className="p-4">
       <style jsx>{`
@@ -22,10 +42,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="main">
-        <Counter
+        {/* <Counter
           title="useEffect"
           description="Fires a function after every render."
-        />
+        /> */}
+        {/* ---------------------- */}
+
+        {/* <LoadingButton
+          label="Press Me"
+          loading={isLoading}
+          onClick={handleClick}
+        /> */}
+        {/* ---------------------- */}
+
+        {/* <Loops animals={animals} /> */}
+        {/* ---------------------- */}
+
+        <Events search={search} setSearch={handleChange} />
       </div>
       <Footer />
     </div>
